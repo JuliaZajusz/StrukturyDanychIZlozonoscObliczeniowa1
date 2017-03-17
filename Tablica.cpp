@@ -39,10 +39,11 @@ void Tablica::dodaj(int indeks, int wartosc) {
     tmptab = NULL;
 }
 
-void Tablica::zapiszStatystykeDoPliku() {
+void Tablica::zapiszStatystykeDoPliku(std::string nazwapliku) {
     std::ofstream plik;
-    plik.open("danelosowe.txt");
+    plik.open(nazwapliku);
     /*
+    plik<< rozmiar<<"\n";
     for(int i =0;i<rozmiar;i++){
         plik << tab[i] << " ";
     }*/
@@ -50,7 +51,6 @@ void Tablica::zapiszStatystykeDoPliku() {
 }
 
 void Tablica::wczytaj(std::string nazwapliku) {
-    std::cout<<"tutaj";
     std::ifstream plik;
     std::string dana;
     plik.open(nazwapliku);
@@ -65,6 +65,31 @@ void Tablica::wczytaj(std::string nazwapliku) {
     plik.close();
     tab=tmptab;
     tmptab = NULL;
+}
+
+void Tablica::usun(int indeks) {
+    rozmiar--;
+    int * tmptab = new int[rozmiar];
+    std::cout<<"kot";
+    for(int i=0;i<indeks;i++){
+        tmptab[i]=tab[i];
+    }
+    for(int i=indeks;i<=rozmiar;i++){
+        tmptab[i]=tab[i+1];
+    }
+    tab=tmptab;
+    tmptab = NULL;
+}
+
+bool Tablica::wyszukaj(int wartosc) {
+    for(int i=0;i<rozmiar;i++){
+        int a=tab[i];
+        if(a==wartosc){
+            std::cout<<"ala";
+            return true;
+        }
+    }
+    return false;
 }
 
 

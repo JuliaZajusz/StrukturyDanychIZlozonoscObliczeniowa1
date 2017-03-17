@@ -77,3 +77,21 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+*.cmake
+cmake-build-debug/Makefile
+*.cbp
+cmake-build-debug/CMakeFiles/TargetDirectories.txt
+*.rsp
+cmake-build-debug/CMakeFiles/projekt1.dir/depend.internal
+*.make
+cmake-build-debug/CMakeFiles/CMakeOutput.log
+*.check_cache
+cmake-build-debug/CMakeFiles/feature_tests.c
+*.bin
+cmake-build-debug/CMakeFiles/3.6.3/CompilerIdC/CMakeCCompilerId.c
+*.xml
+.idea/projekt1.iml
+*.txt
+cmake-build-debug/CMakeFiles/3.6.3/CompilerIdCXX/CMakeCXXCompilerId.cpp
+*.marks
+cmake-build-debug/CMakeFiles/projekt1.dir/CXX.includecache

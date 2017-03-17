@@ -16,9 +16,10 @@ public:
     void wczytaj(std::string nazwapliku);
     void wyswietl();
     void dodaj(int indeks,int wartosc);
-    //
+    void usun(int indeks);
+    bool wyszukaj(int wartosc);
 
-    void zapiszStatystykeDoPliku();
+    void zapiszStatystykeDoPliku(std::string nazwapliku);
 
 };
 

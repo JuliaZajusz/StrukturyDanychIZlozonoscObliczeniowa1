@@ -5,5 +5,5 @@ set(CMAKE_CXX_STANDARD 11)
 
 set(SOURCE_FILES
     menu.cpp
-        Tablica.h Tablica.cpp)
+        Tablica.h Tablica.cpp Lista.cpp Lista.h)
 add_executable(projekt1 ${SOURCE_FILES})
