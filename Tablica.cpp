@@ -8,18 +8,24 @@
 #include <fstream>
 
 Tablica::Tablica(int rozmiar) {
+    if(rozmiar==0){
+        Tablica::tab=new int[0];
+        this->rozmiar=0;
+    }
     //
-    srand (time(NULL));
-    Tablica::tab = new int[rozmiar];
-    this->rozmiar = rozmiar;
-    for(int i =0;i<rozmiar;i++){
-        tab[i] = rand();
+    else {
+        srand(time(NULL));
+        Tablica::tab = new int[rozmiar];
+        this->rozmiar = rozmiar;
+        for (int i = 0; i < rozmiar; i++) {
+            tab[i] = rand();
+        }
     }
 }
 
 void Tablica::wyswietl() {
     for(int i =0;i<rozmiar;i++){
-        std::cout << tab[i] << " ";
+        std::cout <<i<<". "<< tab[i] << "\n";
     }
 }
 
@@ -27,7 +33,6 @@ void Tablica::wyswietl() {
 void Tablica::dodaj(int indeks, int wartosc) {
     rozmiar++;
     int * tmptab = new int[rozmiar];
-    std::cout<<"gwiazdka";
     for(int i=0;i<indeks;i++){
         tmptab[i]=tab[i];
     }
@@ -39,16 +44,7 @@ void Tablica::dodaj(int indeks, int wartosc) {
     tmptab = NULL;
 }
 
-void Tablica::zapiszStatystykeDoPliku(std::string nazwapliku) {
-    std::ofstream plik;
-    plik.open(nazwapliku);
-    /*
-    plik<< rozmiar<<"\n";
-    for(int i =0;i<rozmiar;i++){
-        plik << tab[i] << " ";
-    }*/
-    plik.close();
-}
+
 
 void Tablica::wczytaj(std::string nazwapliku) {
     std::ifstream plik;
@@ -68,28 +64,31 @@ void Tablica::wczytaj(std::string nazwapliku) {
 }
 
 void Tablica::usun(int indeks) {
-    rozmiar--;
     int * tmptab = new int[rozmiar];
-    std::cout<<"kot";
     for(int i=0;i<indeks;i++){
         tmptab[i]=tab[i];
     }
-    for(int i=indeks;i<=rozmiar;i++){
+    for(int i=indeks;i<rozmiar;i++){
         tmptab[i]=tab[i+1];
     }
     tab=tmptab;
     tmptab = NULL;
+    rozmiar--;
 }
 
 bool Tablica::wyszukaj(int wartosc) {
     for(int i=0;i<rozmiar;i++){
         int a=tab[i];
         if(a==wartosc){
-            std::cout<<"ala";
             return true;
         }
     }
     return false;
+}
+
+Tablica::~Tablica() {
+    delete[] tab;
+    rozmiar=0;
 }
 
 

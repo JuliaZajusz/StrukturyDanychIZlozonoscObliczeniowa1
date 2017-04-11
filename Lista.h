@@ -1,32 +1,37 @@
 //
-// Created by julia on 16.03.2017.
+// Created by julia on 02.04.2017.
 //
 
 #ifndef PROJEKT1_LISTA_H
 #define PROJEKT1_LISTA_H
+#include <ctime>
+#include <cstdlib>
+#include <iostream>
+#include <fstream>
+using namespace std;
 
-
-#include <string>
-
-struct ElemListy{
-    int data=NULL;
-    ElemListy * next=NULL;
-    ElemListy * prev=NULL;
+class ElemListy {
+public:
+    ElemListy *nast, *pop;
+    int wartosc;
 };
 
 class Lista {
 private:
-    ElemListy *head=NULL;
-    ElemListy *tail=NULL;
+    ElemListy *glowa, *ogon;
 public:
-    Lista(int rozmiar);
-    void wczytaj(std::string nazwapliku);
+    int rozmiar;
+public:
+    Lista();
+    ~Lista();
+    void zapelnijLosowo(int rozmiar);
+    bool wyszukaj(int liczbaDoZnalezienia);
+    void wczytaj(string nazwa);
+    void dodajZaElementemOWartosci(int wartoscPoprzedzajacego, int wartosc);
+    void dodajNaPoczatek(int nowyKlucz);
+    void dodajNaKoniec(int wartosc);
+    void usun(int wartoscDoUsuniecia);
     void wyswietl();
-    void dodaj(int indeks,int wartosc);
-    void usun(int indeks);
-    bool wyszukaj(int wartosc);
-
-
 };
 
 
